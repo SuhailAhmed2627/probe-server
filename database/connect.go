@@ -32,13 +32,15 @@ func ConnectDB() {
 	connectionString.WriteString(config.DBName)
 	connectionString.WriteString("?charset=utf8mb4&parseTime=True&loc=Local")
 
+	fmt.Println(color.GreenString(connectionString.String()))
+
 	// connect to db
 	db, err = gorm.Open(mysql.Open(connectionString.String()), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
 	})
 
 	if err != nil {
-		fmt.Println(color.RedString("Error connecting to database"))
+		fmt.Println(color.RedString("Error connecting to database", err))
 	} else {
 		fmt.Println(color.GreenString("Database connected"))
 	}

@@ -3,3 +3,5 @@ server
 config.json
 mysql_db
 .vscode
+.gitignore
+docker-data-mysql

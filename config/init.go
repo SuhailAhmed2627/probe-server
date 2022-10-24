@@ -17,6 +17,7 @@ func InitConfig() {
 	}
 
 	stage := os.Getenv("STAGE")
+	print(color.GreenString("Stage: " + stage))
 
 	// Load JSON config
 	configFile, err := os.Open("config.json")
